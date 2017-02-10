@@ -1,7 +1,7 @@
 <html>
 	<head>
             <meta charset="utf-8" />
-            <title>Mes Cours en Ligne</title>
+            <title>Jeux d'enfant ACME</title>
             <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 	</head>
         <?php
@@ -29,7 +29,7 @@
             
             <div id="banner">
               <div class="title_tagline">
-                  <h1 class="title">Mes Cours Enligne</h1>
+                  <h1 class="title">Jeux d'enfant ACME</h1>
                 <h2>- Le pouvoir des connaissances</h2>
               </div>
             </div>
@@ -51,15 +51,13 @@
                     ?>
                     <div id="left">
                         <div class="article">
-                            <h3>Bienvenue a Mes Cours en ligne</h3>
+                            <h3>Bienvenue à Jeux d'enfant ACME</h3>
                             <ul>
-                                <li>Un accès 24/7 de n’importe quel ordinateur connecté à internet </li>
-                                <li>Réduit jusqu’à 75 % le temps de formation (1 jour en classe = 2 h à 3 h en ligne)  </li>
-                                <li>Mises à jour et maintien du contenu facile </li>
-                                <li>Disponible en temps voulu </li>
+                                <li>Tu peux jouer à des jeux demo gratuits. Il y a des jeux pour toute la famille. </li>
+                                <li>Si tu aime le jeux tu peut demandé a tes parents de te procurer le jeux au complet </li>
                             </ul>
                             <br>
-                            <h2>Veuillez vous connectez ou vous inscrire pour avoir acces a vos cours.</h2>
+                            <h2>Veuillez vous connectez ou vous inscrire pour avoir acces a vos jeux.</h2>
                             
                         </div>
                     </div>

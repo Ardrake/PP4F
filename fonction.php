@@ -56,7 +56,7 @@ function check_user() {
 }
 
 function db_connect() {
-   $result = new mysqli('localhost', 'dataadmin', 'admin', 'MesCours');
+   $result = new mysqli('localhost', 'root', '', 'MesCours');
    if (!$result) {
       echo 'erreur connection';
       return false;
