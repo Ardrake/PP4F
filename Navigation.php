@@ -1,6 +1,6 @@
 <?php
 function affiche_navigation($type) {
-    if ($type == "magister"){?>
+    if ($type == "proprio"){?>
         <div id="right">
           <?php echo '<p><b><font size="4">Bonjour Proprio</font></b></p>';?>
           <ul id="nav">
@@ -16,7 +16,7 @@ function affiche_navigation($type) {
         ?>
         <div id="right">
           <?php echo '<p><b><font size="4">Bonjour '.$_SESSION['myClient']->FirstName.'</font></b></p>';?>
-          <ul id="nav">ppp
+          <ul id="nav">
             <li><a href="Client.php">Mon Compte</a></li>
             <!--<li><a href="index.php">Accueil</a></li>-->
             <li><a href="ListeJeux.php">Jeux Offert</a></li>

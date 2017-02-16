@@ -129,7 +129,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`UserName`, `Password`, `admin`) VALUES
 ('imastarr5', 'eggcel', 0),
 ('imasuccess6', 'wizard', 0),
-('magister', 'signum', 1),
+('proprio', '1234', 1),
 ('phoenix9', '5aces', 0);
 
 --

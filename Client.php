@@ -70,7 +70,7 @@
                                             $jeuxnom = $row->nom;
 
                                             echo "<tr><td style='width: 200px; ' >".$jeuxid."</td>"
-                                                    . "<td style='width: 600px;'><a href='jeux.php?idjeux=".$jeuxid."'>".$jeuxnom."</td>"
+                                                    . "<td style='width: 600px;'><a href='jeux.php?idjeux=".$jeuxid."'>".$jeuxnom."</td><td> <input type=button onClick=".'"'."location.href='demojeux.php?idjeux=".$jeuxid."'".'"'."value='Demo'></td>"
                                                 . "</tr>";
                                     }
                                     echo "</table>";

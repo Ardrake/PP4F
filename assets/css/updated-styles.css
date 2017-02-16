@@ -1,0 +1,129 @@
+#color-body {
+    background: lightcoral;
+    color: white;
+    text-transform: uppercase;
+    -moz-box-shadow: inset 0 0 10em white;
+    -webkit-box-shadow: inset 0 0 10em white;
+    box-shadow: inset 0 0 10em white;
+}
+
+.navbar-inverse {
+    background: #D6D6D6;
+    border-color: gray;
+    border-style: none;
+    margin: auto;
+}
+
+#back-text {
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+#back-text:hover {
+    color: lightcoral;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    cursor: default;
+}
+
+.quiz-image {
+    display: block;
+    max-width: 950px;
+    max-height: 540px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+.footer {
+    color: gray;
+    background: #D6D6D6;
+}
+
+.space-list {
+    padding: 5px;
+    position: relative;
+}
+
+.btn,
+.btn:visited,
+.btn:focus,
+.btn:link {
+    width: auto;
+    height: auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    /*  font-weight: 300;*/
+    background: gray;
+    border: 1px solid gray;
+    color: white;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.btn:hover,
+.btn:active,
+.btn:disabled {
+    text-decoration: none;
+    color: lightcoral;
+    border-color: white;
+    background: white;
+}
+
+.btn-reset {
+    background-color: lightcoral;
+    border-color: lightcoral;
+}
+
+.btn-reset:hover,
+.btn-reset:active {
+    background-color: #FFF;
+    border-color: black;
+    color: black;
+}
+
+.img-info {
+    background: lightcoral;
+}
+
+.modal {
+    color: black;
+    background: lightcoral;
+    -moz-box-shadow: inset 0 0 10em white;
+    -webkit-box-shadow: inset 0 0 10em white;
+    box-shadow: inset 0 0 10em white;
+    text-transform: none;
+}
+
+.vertical-alignment-helper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width: inherit;
+    height: inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+}
+.show-answer{
+    
+}

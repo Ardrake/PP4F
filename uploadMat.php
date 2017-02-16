@@ -54,7 +54,7 @@
                                 $mesJeux = getAllJeux();
                                 foreach ($mesJeux as $row) {
                                     $jeuxid = $row->id;
-                                    $Jeuxnom = $row->nom;
+                                    $jeuxnom = $row->nom;
                                     $prix = $row->getCout();
 
                                     echo "<tr><td style='width: 200px; ' >".$jeuxid."</td>"

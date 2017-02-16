@@ -76,6 +76,7 @@
                                                                 . "<td style='width: 600px;'>".$jeuxnom."</td>"
                                                                 . "<td style='width: 200px;'>".$prix."</td>"
                                                                  ."<td> <input type=button onClick=".'"'."location.href='achats.php?idjeux=".$jeuxid."'".'"'."value='Achetez'></td>"
+                                                                ."<td> <input type=button onClick=".'"'."location.href='demojeux.php?idjeux=".$jeuxid."'".'"'."value='Demo'></td>"
                                                             . "</tr>";
                                                 }
                                                 echo "</table>";
@@ -94,13 +95,14 @@
                                                     $mesJeux = $myClient->getJeux();
                                                     foreach ($mesJeux as $row) {
                                                         $jeuxid = $row->id;
-                                                        $coursename = $row->nom;
-                                                        $price = $row->getCout();
+                                                        $jeuxnom = $row->nom;
+                                                        $prix = $row->getCout();
 
                                                         echo "<tr><td style='width: 200px; ' >".$jeuxid."</td>"
                                                                 . "<td style='width: 600px;'>".$jeuxnom."</td>"
                                                                 . "<td style='width: 200px;'>".$prix."</td>"
                                                                 ."<td> <input type=button onClick=".'"'."location.href='jeux.php?idjeux=".$jeuxid."'".'"'."value='Mon jeux'></td>"
+                                                                ."<td> <input type=button onClick=".'"'."location.href='demojeux.php?idjeux=".$jeuxid."'".'"'."value='Demo'></td>"
                                                             . "</tr>";
                                                 }
                                                 echo "</table>";
@@ -125,7 +127,7 @@
                                                         $jeuxid = $row['JeuxID'];
                                                         $jeuxnom = $row['JeuxNom'];
                                                         $prix = $row['Prix'];
-                                                        echo "<tr><td style='width: 200px;'>".$jeuxid."</td><td style='width: 600px;'>".$jeuxnom."</td><td>".$prix."</td></tr>";
+                                                        echo "<tr><td style='width: 200px;'>".$jeuxid."</td><td style='width: 600px;'>".$jeuxnom."</td><td> <input type=button onClick=".'"'."location.href='demojeux.php?idjeux=".$jeuxid."'".'"'."value='Demo'></td><td>".$prix."</td></tr>";
                                                 }
                                                 echo "</table>";
                                                 ?></th>

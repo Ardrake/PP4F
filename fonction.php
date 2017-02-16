@@ -23,7 +23,7 @@ function login($username, $password) {
         //admin is true
         if ($row["admin"] == 1) {
             $_SESSION['admin_user'] = $username;
-            //echo "log in magister";
+            //echo "log in proprio";
             return 1;
         } //admin is false
         else {
