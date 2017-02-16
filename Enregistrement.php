@@ -10,7 +10,7 @@ enregistrement nouvelle  usager
     </head>
     <?php
         require_once('fonction.php');
-        require_once('ClassMesCours.php');
+        require_once('ClassMesJeux.php');
         require_once('Navigation.php');
         
         session_start();
@@ -135,14 +135,14 @@ enregistrement nouvelle  usager
             $conn = db_connect();
 
             mysqli_set_charset($conn,"utf8");
-            mysqli_select_db($conn, "mescours");
+            mysqli_select_db($conn, "acmejeux");
 
-            $spGetid = "SELECT `StudentID` FROM `students` ORDER BY `StudentID` DESC LIMIT 1 ";
+            $spGetid = "SELECT `ClientID` FROM `client` ORDER BY `ClientID` DESC LIMIT 1 ";
             $newid = mysqli_query($conn,$spGetid) ;
             if ($newid->num_rows>0) {
                  //echo "record trouvé";
                     $row = $newid->fetch_assoc();
-                    $stringcurrentid = $row["StudentID"];
+                    $stringcurrentid = $row["ClientID"];
             }
             $newidval = intval ($stringcurrentid) + 1;
             
@@ -151,7 +151,7 @@ enregistrement nouvelle  usager
             
             $spUser = "CALL insereUser ('".$usager."','".$_password."')";
             
-            $sp = "CALL insereEtudiant('".$_id."','".$nom."','".$prenom."','".$addresse.
+            $sp = "CALL insereClient('".$_id."','".$nom."','".$prenom."','".$addresse.
                     "','".$ville."','".$province."','".$codepostal."','".$couriel."','".$usager."')";
             
             if (!mysqli_query($conn,$spUser)) {
@@ -159,7 +159,7 @@ enregistrement nouvelle  usager
               }
               else {
                   if (!mysqli_query($conn,$sp)){
-                    die('Error: etudiants insert');
+                    die('Error: Client insert');
                   }
                     else {
                         login($usager, $_password);
@@ -174,7 +174,7 @@ enregistrement nouvelle  usager
         <div id="banner">
          
             <div class="title_tagline">
-                <h1 class="title">Mes Cours Enligne</h1>
+                <h1 class="title">Jeux d'enfant ACME</h1>
               <h2>- Le pouvoir des connaissances</h2>
             </div>
         </div>

@@ -1,21 +1,21 @@
 <html>
 	<head>
             <meta charset="utf-8" />
-            <title>Upload Materiel</title>
+            <title>Upload Image</title>
             <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 	</head>
         <?php
 
         require_once('fonction.php');
-        require_once('ClassMesCours.php');
+        require_once('ClassMesJeux.php');
         require_once('Navigation.php');
         session_start();
         
         $conn = db_connect();
-        $idErr = $nomErr = $prixErr = $tuteurErr = "";
-        $id = $nom = $prix = $tuteur = "";
+        $idErr = $nomErr = $prixErr = "";
+        $id = $nom = $prix = "";
         $valide = TRUE;
-        $idcours = "1101"
+        $idjeux = "1101"
         ?>
         <body>
             
@@ -24,7 +24,7 @@
         <div id="banner">
          
             <div class="title_tagline">
-                <h1 class="title">Mes Cours Enligne</h1>
+                <h1 class="title">Jeux d'enfant ACME</h1>
               <h2>- Le pouvoir des connaissances</h2>
             </div>
         </div>
@@ -33,24 +33,24 @@
             <div id="content">
             <?php
                 if (check_admin_user() == 1){
-                 affiche_navigation('magister');
+                 affiche_navigation('proprio');
                   } else {
                  header('Location: index.php');
                  } 
                  
-                 if (isset($_GET['idcour'])){
-                    $courseid = $_GET['idcour'];
-                    $_SESSION['coursAchat'] = $_GET['idcour'];
+                 if (isset($_GET['idjeux'])){
+                    $jeuxid = $_GET['idjeux'];
+                    $_SESSION['jeuxAchat'] = $_GET['idjeux'];
                 } else {
-                    $courseid = $_SESSION['coursAchat'];
+                    $jeuxid = $_SESSION['coursAchat'];
                 }
             ?>
-                <h3>Téléchargement de matériel de cours</h3>
+                <h3>Téléchargement d'image de jeux</h3>
                 <hr>
          
                 <?php
-                echo $courseid;
-                echo "<form action='fichierRecu.php?idcour=".$courseid."'"."method='post' enctype='multipart/form-data'>"
+                echo $jeuxid;
+                echo "<form action='fichierRecu.php?idcour=".$jeuxid."'"."method='post' enctype='multipart/form-data'>"
                 ?>
                     Choisir un fichier a téléchargé:
                 <form>

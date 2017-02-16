@@ -1,5 +1,5 @@
 <?php
-require_once('ClassMesCours.php');
+require_once('ClassMesJeux.php');
 
 function login($username, $password) {
 // check username and password with db
@@ -28,13 +28,13 @@ function login($username, $password) {
         } //admin is false
         else {
             $_SESSION['valid_user'] = $username;
-            $_SESSION['myStudent'] = getMyStudent($username);
+            $_SESSION['myClient'] = getMyClient($username);
             //echo "log in usager";
             return 1;
         }
     } else {
         echo "combinaison usager et mot de passe inexistant";
-        $_SESSION['myCourse'] = getAllCourses();
+        $_SESSION['myJeux'] = getAllJeux();
             return 0;
     }
 }
@@ -56,7 +56,7 @@ function check_user() {
 }
 
 function db_connect() {
-   $result = new mysqli('localhost', 'root', '', 'MesCours');
+   $result = new mysqli('localhost', 'root', '', 'acmejeux');
    if (!$result) {
       echo 'erreur connection';
       return false;
@@ -65,17 +65,17 @@ function db_connect() {
    return $result;
 }
 
-function getMyStudent($username){
+function getMyClient($username){
     $conn = db_connect();
     if (!$conn) {
       return 0;
     }
-    // retour objet Etudiant
-    $result = $conn->query("select * from students
+    // retour objet Client
+    $result = $conn->query("select * from client
                            where username='".$username."'");
                                
     if (!$result) {
-       //echo "student non trouvé";
+       //echo "client non trouvé";
        return 0;
     }
      if ($result->num_rows>0) {
@@ -84,41 +84,43 @@ function getMyStudent($username){
         //print_r($result);
         
         while ($obj = mysqli_fetch_array($result)) {
-                $myStudent = new Etudiant($obj[0], $obj[1], $obj[2], $obj[3], $obj[4], $obj[5], $obj[6], $obj[7], $obj[8]);
+                $myClient = new Client($obj[0], $obj[1], $obj[2], $obj[3], $obj[4], $obj[5], $obj[6], $obj[7], $obj[8]);
                 
-                $sql = "SELECT * FROM courses 
-                        left outer join studentscourses ON courses.CourseID =  studentscourses.CourseID
-                        where StudentID = '".$myStudent->StudentID."'";
+                $sql = "SELECT * FROM jeux 
+                        left outer join clientjeux ON jeux.JeuxID =  clientjeux.JeuxID
+                        where ClientID = '".$myClient->ClientID."'";
                 
-                $LesCours = $conn->query($sql);
+                $LesJeux = $conn->query($sql);
                 
-                while ($objcours = mysqli_fetch_array($LesCours)) {
-                    $myCours = new Cours($objcours[0], $objcours[1], $objcours[2], $objcours[3]);
-                    $myStudent->ajouteCours($myCours);
+                while ($objjeux = mysqli_fetch_array($LesJeux)) {
+                    $myJeux = new Jeux($objjeux[0], $objjeux[1], $objjeux[2], $objjeux[3]);
+                    $myClient->ajouteJeux($myJeux);
                 }
             }
         }
-        return $myStudent;
+        //print_r($myClient);
+        return $myClient;
+        
     /* libéré les resultats */
     $result->close();
 }
 
-function getAllCourses(){
+function getAllJeux(){
     $conn = db_connect();
-    $listeDesCours = array();
+    $listeDesJeux = array();
     if (!$conn) {
       return 0;
     }
     else {
         // retour list des cours étutdian
         if (check_user() == 1){
-            $myStudent = getMyStudent($_SESSION['valid_user']);
-            $studentid = $myStudent->StudentID;
+            $myClient = getMyClient($_SESSION['valid_user']);
+            $clientid = $myClient->ClientID;
             //echo "list de cours pas prit par etudiant";
-            $sql = "SELECT * FROM courses WHERE CourseID NOT IN (SELECT CourseID FROM studentscourses WHERE StudentID = '". $studentid ."')";
+            $sql = "SELECT * FROM jeux WHERE JeuxID NOT IN (SELECT JeuxID FROM clientjeux WHERE ClientID = '". $clientid ."')";
         }
          else {
-             $sql = "SELECT * FROM courses";
+             $sql = "SELECT * FROM jeux";
          }
     }
     $result = $conn->query($sql);
@@ -129,10 +131,10 @@ function getAllCourses(){
      if ($result->num_rows>0) {
         
         while ($obj = mysqli_fetch_array($result)) {
-                $myCours = new Cours($obj[0], $obj[1], $obj[2], $obj[3]);
-                $listeDesCours[] = $myCours;
+                $myJeux = new Jeux($obj[0], $obj[1], $obj[2]);
+                $listeDesJeux[] = $myJeux;
         }
-    return $listeDesCours;    
+    return $listeDesJeux;    
     }
     /* libéré les resultats */
     $result->close();
@@ -173,7 +175,7 @@ function display_login_form() {
         return $data;
     }
     
-    function getMaterielCours($dir){
+    function getMaterielJeux($dir){
         $files = scandir($dir);
         return $files;
     }

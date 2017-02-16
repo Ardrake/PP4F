@@ -7,7 +7,7 @@
         <?php
 
         require_once('fonction.php');
-        require_once('ClassMesCours.php');
+        require_once('ClassMesJeux.php');
         require_once('Navigation.php');
         session_start();
         ?>
@@ -18,43 +18,43 @@
         <div id="banner">
          
             <div class="title_tagline">
-                <h1 class="title">Mes Cours Enligne</h1>
+                <h1 class="title">Jeux d'enfant ACME</h1>
               <h2>- Le pouvoir des connaissances</h2>
             </div>
         </div>
             
         <div id="main">
             <div id="content">
-                <h3>Achats de cours</h3>
+                <h3>Achats de jeux</h3>
                 <?php
                 $conn = db_connect();
                 $carteErr = $anneeErr = $moisErr = "";
                 $carte = $mois = $annee = "";
                 $valide = TRUE;
                 
-                if (isset($_GET['idcour'])){
-                    $courseid = $_GET['idcour'];
-                    $_SESSION['coursAchat'] = $_GET['idcour'];
+                if (isset($_GET['idjeux'])){
+                    $jeuxid = $_GET['idjeux'];
+                    $_SESSION['jeuxAchat'] = $_GET['idjeux'];
                 } else {
-                    $courseid = $_SESSION['coursAchat'];
+                    $jeuxid = $_SESSION['jeuxAchat'];
                 }
                 
                 
                 if (check_admin_user() == 1){
-                    //affiche_navigation('magister');   
+                    //affiche_navigation('proprio');   
                 }
                 else if (check_user() == 1){
-                    $myStudent = getMyStudent($_SESSION['valid_user']);
-                    $studentid = $myStudent->StudentID;
-                    $sql = "SELECT * FROM courses 
-                            WHERE CourseID ='".$courseid."'";
+                    $myClient = getMyClient($_SESSION['valid_user']);
+                    $studentid = $myClient->ClientID;
+                    $sql = "SELECT * FROM jeux 
+                            WHERE jeuxID ='".$jeuxid."'";
                     $result = mysqli_query($conn,$sql);  
                     $num_rows = mysqli_num_rows($result); 
                     }
 
                      while($row = mysqli_fetch_array($result)) {
-                        $myCours = new Cours($row['CourseID'], $row['CourseName'], $row['Price'], $row['Tutor']);
-                        echo "<h4>".$myCours->id." - ".$myCours->nom." - ".$myCours->getCout()."$</h4>";
+                        $myJeux = new Jeux($row['JeuxID'], $row['JeuxNom'], $row['Prix']);
+                        echo "<h4>".$myJeux->id." - ".$myJeux->nom." - ".$myJeux->getCout()."$</h4>";
                         echo "<br>";
                     }
                     
@@ -129,10 +129,10 @@
                     //echo "is valide";
                     $conn = db_connect();
                     mysqli_set_charset($conn,"utf8");
-                    mysqli_select_db($conn, "mescours");  
+                    mysqli_select_db($conn, "acmejeux");  
                     
-                    $myStudent->ajouteCours($myCours);
-                    $spAchat = "CALL achatCours ('".$myStudent->StudentID."','".$myCours->id."')";
+                    $myClient->ajouteJeux($myJeux);
+                    $spAchat = "CALL achatJeux ('".$myClient->ClientID."','".$myJeux->id."')";
             
                     if (!mysqli_query($conn,$spAchat)) {
                         die('Error: achat');

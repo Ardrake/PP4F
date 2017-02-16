@@ -7,7 +7,7 @@
         <?php
 
         require_once('fonction.php');
-        require_once('ClassMesCours.php');
+        require_once('ClassMesJeux.php');
         require_once('Navigation.php');
         session_start();
         
@@ -16,8 +16,8 @@
             //show_nav_menu();
         }
         if(check_user()){
-            $myStudent = getMyStudent($_SESSION['valid_user']);
-            echo '<p><b><font size="4">Bonjour '.$myStudent->FirstName.'</font></b></p>';
+            $myClient = getMyClient($_SESSION['valid_user']);
+            echo '<p><b><font size="4">Bonjour '.$myClient->FirstName.'</font></b></p>';
         }
         ?>
         <body>
@@ -39,10 +39,10 @@
                     <?php
                      if (check_admin_user() == 1){
                          //affiche_navigation('magister');  
-                         header('Location: Magister.php');
+                         header('Location: Proprio.php');
                      }
                      else if (check_user() == 1){
-                        header('Location: Etudiant.php');
+                        header('Location: Client.php');
                         //affiche_navigation('user');
                      }
                      else {
