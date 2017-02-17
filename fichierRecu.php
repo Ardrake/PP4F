@@ -1,16 +1,16 @@
 Upload results<br>
 
 <?php
-$courseid = $_GET['idcour'];
-echo "cours id : ".$courseid."<br>";
-$target_dir = "assets/cours/".$courseid."/";
+$jeuxid = $_GET['idjeux'];
+echo "jeux id : ".$jeuxid."<br>";
+$target_dir = "assets/jeux/".$jeuxid."/";
 echo $target_dir."<br>";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // verifié si fichier existe deja
 if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
+    echo "Fichier exist deja";
     $uploadOk = 0;
 }
 // validé dimension du fichier - limites

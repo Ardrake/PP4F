@@ -44,7 +44,7 @@
                     $message = "";
                 }
             ?>
-                <h3>Téléchargement d'image de cours</h3>
+                <h3>Téléchargement d'image de Jeux</h3>
                 <hr>
                 
                 <table>

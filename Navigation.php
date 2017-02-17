@@ -20,7 +20,7 @@ function affiche_navigation($type) {
             <li><a href="Client.php">Mon Compte</a></li>
             <!--<li><a href="index.php">Accueil</a></li>-->
             <li><a href="ListeJeux.php">Jeux Offert</a></li>
-            <!--<li><a href="achats.php">Achat de cours</a></li>-->
+            <!--<li><a href="achats.php">Achat de jeux</a></li>-->
             <li><a href="LogOff.php">Deconnexion</a></li>
           </ul>
         </div>

@@ -30,7 +30,7 @@
             <div id="banner">
 
                 <div class="title_tagline">
-                    <h1 class="title">Mes Cours Enligne</h1>
+                    <h1 class="title">Jeux d'enfant ACME</h1>
                   <h2>- Le pouvoir des connaissances</h2>
                 </div>
             </div>

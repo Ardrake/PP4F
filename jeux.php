@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-affiche les détails du cours enligne
+affiche les détails du jeux 
 -->
 <html>
     <head>

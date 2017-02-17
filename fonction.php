@@ -80,7 +80,7 @@ function getMyClient($username){
     }
      if ($result->num_rows>0) {
         /* fetch object array */
-        //echo "Trouvé etudiant";
+        //echo "Trouvé client";
         //print_r($result);
         
         while ($obj = mysqli_fetch_array($result)) {
@@ -112,11 +112,11 @@ function getAllJeux(){
       return 0;
     }
     else {
-        // retour list des cours étutdian
+        // retour list des jeux client
         if (check_user() == 1){
             $myClient = getMyClient($_SESSION['valid_user']);
             $clientid = $myClient->ClientID;
-            //echo "list de cours pas prit par etudiant";
+            //echo "list des jeux pas prit par client";
             $sql = "SELECT * FROM jeux WHERE JeuxID NOT IN (SELECT JeuxID FROM clientjeux WHERE ClientID = '". $clientid ."')";
         }
          else {

@@ -63,8 +63,14 @@
                     </div>
                 </div>
             </div>
-                
-            <div class="col-md-12">
+            <hr>
+            <div class="col-md-8 center-block" >
+                <?php
+                    include 'sondage.php';
+                ?>
+            </div>                
+            <hr>
+            <div class="col-md-10">
                 <?php
                     /* Compteur */
                     $datei = fopen("assets/compteur.txt","r");
